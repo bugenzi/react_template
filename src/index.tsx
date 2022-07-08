@@ -1,7 +1,6 @@
 import * as React from "react";
 import ReactDOM from "react-dom";
-
-const App = () => <h1>React boilerplate using ts </h1>;
+import App from "./app";
 
 ReactDOM.render(
   <React.StrictMode>
