@@ -1,3 +1,4 @@
+import { AxiosResponse } from "axios";
 import HttpClient from "./http-client-base";
 
 export default class MainApi extends HttpClient {
@@ -7,12 +8,13 @@ export default class MainApi extends HttpClient {
     super("https://cat-fact.herokuapp.com");
   }
 
-  public static getInstance() {
+  public static getInstance(): MainApi {
     if (!this.classInstance) {
       this.classInstance = new MainApi();
     }
     return this.classInstance;
   }
 
-  public getData = () => this.instance.get("/facts");
+  public getData = (): Promise<AxiosResponse<any, any>> =>
+    this.instance.get("/facts");
 }
